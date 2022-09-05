@@ -21,12 +21,12 @@ class Message
     public $status = array('cod_status' => null, 'description_status' => '');
 
 
-    public function __get($atribute)
+    public function getAtribute($atribute)
     {
         return $this->$atribute;
     }
 
-    public function __set($atribute, $value)
+    public function setAtribute($atribute, $value)
     {
         $this->$atribute = $value;
     }
@@ -43,9 +43,9 @@ class Message
 
 $mensagem = new Message();
 
-$mensagem->__set('to', $_POST['to']);
-$mensagem->__set('subject', $_POST['subject']);
-$mensagem->__set('message', $_POST['message']);
+$mensagem->setAtribute('to', $_POST['to']);
+$mensagem->setAtribute('subject', $_POST['subject']);
+$mensagem->setAtribute('message', $_POST['message']);
 
 if (!$mensagem->validateMessage()) {
     echo 'Message is not valid';
@@ -67,7 +67,7 @@ try {
 
     //Recipients
     $mail->setFrom('email@email.com', 'Site User');
-    $mail->addAddress($mensagem->__get('to'), 'Site User');     //Add a recipient
+    $mail->addAddress($mensagem->getAtribute('to'), 'Site User');     //Add a recipient
     // $mail->addAddress('ellen@example.com');               //Name is optional
     $mail->addReplyTo('info@example.com', 'Information');
     // $mail->addCC('cc@example.com');
@@ -79,8 +79,8 @@ try {
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = $mensagem->__get('subject');
-    $mail->Body    = $mensagem->__get('message');
+    $mail->Subject = $mensagem->getAtribute('subject');
+    $mail->Body    = $mensagem->getAtribute('message');
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
