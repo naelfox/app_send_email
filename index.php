@@ -17,11 +17,11 @@ session_start();
 
 		<div class="py-3 text-center">
 			<img class="d-block mx-auto mb-2" src="logo.png" alt="" width="72" height="72">
-			<h2>Send Mail</h2>
+			<h1>Send Mail</h1>
 			<p class="lead">Your app to send emails! </p>
 		</div>
 
-
+		<hr class="my-4">
 		<?php if ($_SESSION['cod_status'] == 1) : ?>
 			<div class="alert alert-success" role="alert">
 				<p>Message has been sent</p>
@@ -41,17 +41,17 @@ session_start();
 
 				<div class="card-body font-weight-bold">
 					<form action="data/process.php" method="post">
-						<div class="form-group">
+					<div class="mb-2">
 							<label for="to">To</label>
 							<input type="text" name="to" class="form-control" id="para" placeholder="john@domain.com.br">
 						</div>
 
-						<div class="form-group">
+						<div class="mb-2">
 							<label for="subject">Subject</label>
 							<input type="text" name="subject" class="form-control" id="assunto" placeholder="Subject of the email">
 						</div>
 
-						<div class="form-group">
+						<div class="mb-4">
 							<label for="message">Message</label>
 							<textarea class="form-control" name="message" id="message"></textarea>
 						</div>
