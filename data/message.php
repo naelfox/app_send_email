@@ -1,11 +1,9 @@
-<?
+<?php
 class Message
 {
     private $to = null;
     private $subject = null;
     private $message = null;
-
-    public $status = array('cod_status' => null, 'description_status' => '');
 
 
     public function getAtribute($atribute)

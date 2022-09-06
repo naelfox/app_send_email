@@ -1,12 +1,12 @@
 <?php
-require_once "../userCredentials.php";
-require_once "./message.php";
-require_once "../PHPMailer/Exception.php";
-require_once "../PHPMailer/OAuthTokenProvider.php";
-require_once "../PHPMailer/OAuth.php";
-require_once "../PHPMailer/PHPMailer.php";
-require_once "../PHPMailer/POP3.php";
-require_once "../PHPMailer/SMTP.php";
+require_once "./userCredentials.php";
+require_once "./data/message.php";
+require_once "./PHPMailer/Exception.php";
+require_once "./PHPMailer/OAuthTokenProvider.php";
+require_once "./PHPMailer/OAuth.php";
+require_once "./PHPMailer/PHPMailer.php";
+require_once "./PHPMailer/POP3.php";
+require_once "./PHPMailer/SMTP.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -72,7 +72,7 @@ if ($_POST['sendMail'] == 1) {
 
 
 } else {
-    // header('Location: ../index.php');
+    // header('Location: ./index.php');
 }
 
 
@@ -82,18 +82,3 @@ if ($_POST['sendMail'] == 1) {
 
 
 ?>
-
-
-<div class="py-3 text-center">
-    <img class="d-block mx-auto mb-2" src="logo.png" alt="" width="72" height="72">
-    <h2>Send Mail</h2>
-    <p class="lead">Your app to send emails! </p>
-    <? if ($message->status['cod_status'] == 1) : ?>
-        <h1><?= $message->status['description_status']; ?></h1>
-
-    <? elseif ($message->status['cod_status'] == 2) : ?>
-        <h1><?= $message->status['description_status']; ?></h1>
-    <? endif; ?>
-    <a href="../index.php">Back</a>
-
-</div>

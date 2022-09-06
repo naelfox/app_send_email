@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 
 <head>
@@ -18,11 +21,26 @@
 			<p class="lead">Your app to send emails! </p>
 		</div>
 
+
+		<?php if ($_SESSION['cod_status'] == 1) : ?>
+			<div class="alert alert-success" role="alert">
+				<p>Message has been sent</p>
+			</div>
+		<?php elseif ($_SESSION['cod_status'] == 0) : ?>
+			<div class="alert alert-danger" role="alert">
+				<p>Message could not be sent</p>
+			</div>
+		<?php endif; ?>
+
+
+		<?php
+		$_SESSION['cod_status'] = "";
+		?>
 		<div class="row">
 			<div class="col-md-12">
 
 				<div class="card-body font-weight-bold">
-					<form action="data/send.php" method="post">
+					<form action="data/process.php" method="post">
 						<div class="form-group">
 							<label for="to">To</label>
 							<input type="text" name="to" class="form-control" id="para" placeholder="john@domain.com.br">
@@ -38,7 +56,7 @@
 							<textarea class="form-control" name="message" id="message"></textarea>
 						</div>
 
-						<input type="hidden" name="sendMail" value="1">
+						<input type="hidden" name="type" value="sendMail">
 						<button type="submit" class="btn btn-primary btn-lg">Send Message</button>
 					</form>
 				</div>
