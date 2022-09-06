@@ -22,7 +22,7 @@
 			<div class="col-md-12">
 
 				<div class="card-body font-weight-bold">
-					<form action="data/sendProcess.php" method="post">
+					<form action="data/send.php" method="post">
 						<div class="form-group">
 							<label for="to">To</label>
 							<input type="text" name="to" class="form-control" id="para" placeholder="john@domain.com.br">
