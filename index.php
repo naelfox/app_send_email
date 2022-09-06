@@ -22,10 +22,10 @@
 			<div class="col-md-12">
 
 				<div class="card-body font-weight-bold">
-					<form action="sendProcess.php" method="post">
+					<form action="data/sendProcess.php" method="post">
 						<div class="form-group">
 							<label for="to">To</label>
-							<input type="text" name= "to"class="form-control" id="para" placeholder="john@domain.com.br">
+							<input type="text" name="to" class="form-control" id="para" placeholder="john@domain.com.br">
 						</div>
 
 						<div class="form-group">
@@ -38,6 +38,7 @@
 							<textarea class="form-control" name="message" id="message"></textarea>
 						</div>
 
+						<input type="hidden" name="sendMail" value="1">
 						<button type="submit" class="btn btn-primary btn-lg">Send Message</button>
 					</form>
 				</div>
